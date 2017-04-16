@@ -28,9 +28,13 @@ public abstract class Sort{
 	
 	void performTask(){
 		
+		long startTime = System.nanoTime();
 		performSort();
+		long endTime = System.nanoTime();
+		long diff = endTime - startTime;
 		setComplexities();
 		display();
 		
+		System.out.println("Total time taken to sort (in Nanoseconds): "+diff);		
 	}
 }

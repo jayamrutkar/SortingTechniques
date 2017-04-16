@@ -7,7 +7,7 @@ public class Sorting {
 
 	public enum SortType{
 		BUBBLE_SORT, SELECTION_SORT, INSERTION_SORT, MERGE_SORT, QUICK_SORT, HEAP_SORT, COUNTING_SORT,
-		RADIX_SORT, BUCKET_SORT, SHELL_SORT
+		RADIX_SORT, BUCKET_SORT, SHELL_SORT, PIGEONHOLE_SORT
 	}
 	
 	private Sort sort;
@@ -37,13 +37,15 @@ public class Sorting {
 		}
 		
 		System.out.println("Different Sorting Available Options: ");
-		for(int i=0;i<SortType.values().length;i++){
+		int i=0;
+		for(i=0;i<SortType.values().length;i++){
 			System.out.println((i+1)+". "+SortType.values()[i]);
 		}
-		System.out.println("Enter yours ");
+		System.out.println((i+1)+". Exit");
+		System.out.println("Select Sorting Technique ");
 		int selected = in.nextInt();
 		
-		if(selected>0 && selected<SortType.values().length){
+		if(selected>0 && selected<=SortType.values().length){
 			this.sortType = SortType.values()[selected-1];
 		}
 		
@@ -88,6 +90,9 @@ public class Sorting {
 			break;
 		case SHELL_SORT:
 			setSortingWay(new ShellSort(localArr));
+			break;
+		case PIGEONHOLE_SORT:
+			setSortingWay(new PigeonholeSorting(localArr));
 			break;
 		default:
 			setSortingWay(new MergeSort(localArr));

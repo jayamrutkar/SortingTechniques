@@ -17,7 +17,7 @@ public class BucketSort extends Sort {
 		List<List<Integer>> list = new ArrayList<List<Integer>>();
 		
 		for(int i=0;i<n;i++){
-			
+		
 			List<Integer> ls = list.get(n * arr[i]);
 			if(null == ls){
 				ls=new ArrayList<Integer>();
